@@ -4,32 +4,36 @@
 $_SESSION['Cart'] = [];
 
 /**
- * opis moje kart klase   ++ iznad svake funkcije isto napraviti
+ * Creating class "Cart"
  */ 
-
 class Cart
 {
+        /**
+         * Start cart */
 
     public function __construct()
-    {   // Start cart
+    {   
         echo "Adds an item in the current shopping cart:";
         $input = trim(fgets(STDIN,1024));
         $this -> checkInput($input);
     }
 
+     /**
+      * Check ADD,CHECKOUT,REMOVE,END functions */
     public function checkInput($input)
     {
-        //Explode input
+        
         $inputArray = explode(" ",$input);
-        // Check (ADD,CHECKOUT,REMOVE,END)
+       
         switch ($inputArray[0]) {
             case 'ADD':
-                    //Check if this item exists in the inventory 
+                    /**
+                     * Check if this item exists in the inventory */
                     if(isset($_SESSION['Inventory'][$inputArray[1]]))
                     {
-                        //Check errors & quantity  
+                         
                         if($this -> checkError($inputArray) && $this -> checkQuantity($inputArray)){
-                           //Insert into 
+                           
                             $this -> insertItem($inputArray);
                             echo "Item added \n";
                         }
@@ -38,11 +42,15 @@ class Cart
                     }
                 break;
             case 'REMOVE':
-                //Check if this item exists 
+
+                /**
+                 * Check if this item exists */
+                
                 if(isset($_SESSION['Cart'][$inputArray[1]]))
                 {
                     if($this -> checkError($inputArray)){
-                        //Check errors & remove items
+                        /**
+                         * Check errors & remove items */
                         $this -> removeItem($inputArray);
                         echo "Item removed \n";
                     }
@@ -52,7 +60,8 @@ class Cart
                 break;    
             case 'CHECKOUT':
                 if(!empty($_SESSION['Cart'])){
-                    //Call checkout if something is  in the cart 
+                    /**
+                     * Call checkout if something is  in the cart */
                     $this -> checkout();
                 }else{
                     echo "ADD some item \n";
@@ -69,10 +78,11 @@ class Cart
         }
         New cart;
     }
-
+        /**
+        * Delete or change quantity number */
     public function removeItem($inputArray)
     {
-        //Delete or change quantity number
+        
         if($_SESSION['Cart'][$inputArray[1]]['quantity'] <= $inputArray[2])
         {
             $_SESSION['Inventory'][$inputArray[1]]['quantity'] = 
@@ -89,9 +99,10 @@ class Cart
         }
 
     }
-
+        /** 
+        * Show all items and prints total price */
     public function checkout()
-    {   //Show all items and print total price
+    {   
         $totalPrice=0;
         echo "\n";
         foreach($_SESSION['Cart'] as $keyCart)
@@ -108,28 +119,32 @@ class Cart
         echo "\n";
         echo "Total price ".$totalPrice. "\n";
         echo "\n";
-        // Delete the cart items
+        /**
+         * Delete cart items */
         foreach($_SESSION['Cart'] as $keyCart){
             unset($_SESSION['Cart'][$keyCart['sku']]);
         }
     }
-
+        /** 
+         * Insert item in cart */ 
     public function insertItem($input)
     {
-        //Insert item in cart  
+         
         $_SESSION['Cart'][$input[1]] = [
             'sku' => trim($input[1]),
             'quantity' => trim($input[2])
         ];
-        //Decrease item quantity 
+        /**
+         * Decrease item quantity */
         $_SESSION['Inventory'][$input[1]]['quantity'] =
         $_SESSION['Inventory'][$input[1]]['quantity'] - $input[2]; 
 
 
     }
-
+        /**
+         * Check input errors */
     public function checkError($inputArray)
-    {   //Check input errors
+    {   
         if(count($inputArray) !== 3)
         {
             echo "invalid entry \n";
@@ -147,10 +162,12 @@ class Cart
             return true;
         }
     }
-
+        /**
+         * If it is more than in the inventory, show error
+         */
     public function checkQuantity($inputArray)
     {
-        //If it is more than in the inventory, show error
+        
         if($_SESSION['Inventory'][$inputArray[1]]['quantity'] < $inputArray[2])
         {
             echo $_SESSION['Inventory'][$inputArray[1]]['quantity']." are available \n";

@@ -2,9 +2,12 @@
 
 $_SESSION['Inventory'] = [];
 
+/**
+ * Creating class "Inventory"
+ */ 
 class Inventory
-{
 
+{
     public $input = [];
 
     public function __construct()
@@ -13,19 +16,21 @@ class Inventory
         $input = trim(fgets(STDIN,1024));
         $this -> checkInput($input);
     }
-
+    /**
+     *  Check if the input is correct (ADD or END action) */
     public function checkInput($input)
     {   
         $inputArray = explode(" ",$input);
 
-        // Check if the input is correct ADD or END action
+        
         if($inputArray[0] === "END")
         {   
             if(empty($_SESSION['Inventory']))
             {
                 echo "inventory is empty \n";
             }else
-            {   //If the field is not empty, go to the second stage 
+            {   /** 
+                 *If the field is not empty, go to the second stage */
                 include 'cart.php';
                 return;
             }
@@ -33,7 +38,8 @@ class Inventory
         }else if($inputArray[0] === "ADD")
         {
             if($this-> checkErrors($inputArray))
-            {   //If there are no errors, start adding to the inventory
+            {   /** 
+                 *If there are no errors, start adding to the inventory */
                 echo "Item added \n";
                 $this -> insertIntoInventory($inputArray);
             }
@@ -43,9 +49,10 @@ class Inventory
         }
         new inventory;
     }
-
+        /**
+         *  Function for adding items */
     public function insertIntoInventory($input)
-    {   // Adding items
+    {   
         $_SESSION['Inventory'][$input[1]] = [
             'sku' => trim($input[1]),
             'quantity' => trim($input[3]),
@@ -53,9 +60,10 @@ class Inventory
             'price' => trim($input[4]) 
         ];
     }
-
+        /**
+         *  Five entries is a must */
     public function checkErrors($inputArray)
-    {   // Five entries is a must.
+    {   
         if(count($inputArray) !== 5)
         {
             echo "invalid entry \n";
@@ -81,4 +89,6 @@ class Inventory
             return true;
         }
     }
+  
 }
+
