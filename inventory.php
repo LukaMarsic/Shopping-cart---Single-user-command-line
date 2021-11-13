@@ -44,3 +44,14 @@ class Inventory
         }
         new inventory;
     }
+
+
+    public function insertIntoInventory($input)
+    {   // Adding items
+        $_SESSION['Inventory'][$input[1]] = [
+            'sku' => trim($input[1]),
+            'quantity' => trim($input[3]),
+            'name' => trim($input[2]),
+            'price' => trim($input[4]) 
+        ];
+    }
