@@ -73,6 +73,6 @@ Below are the commands for each phase.
 * Total price 8.96
 ```
 
-## Assests ##
+## Assets ##
 
 ![Shopping-cart](Preview/shoppingcart.png)
