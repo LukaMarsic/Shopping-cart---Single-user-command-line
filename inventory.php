@@ -52,7 +52,8 @@ class Inventory
             }
 
         } else if ($inputArray[0] === "ADD") {
-            if ($this->checkErrors($inputArray)) {/**
+            if ($this->checkErrors($inputArray)) {
+            /**
              *If there are no errors, start adding to the inventory */
                 echo "Item added \n";
                 $this->insertIntoInventory($inputArray);
