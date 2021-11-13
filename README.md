@@ -8,7 +8,7 @@ ________________________________________________________________________________
 ________________________________________________________________________________________
 4.After installation of PHP, we are ready to run PHP code through command line. You just follow the steps to run PHP program using command line.  <br><br>
 ->Open terminal or command line window.<br>
-->Goto the specified folder or directory where php files are present.<br>
+->Go to the specified folder or directory where php files are present.<br>
 ->Then we can run php code code using the following command:<br>
 
               php file_name.php
