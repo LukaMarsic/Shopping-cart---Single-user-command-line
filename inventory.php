@@ -55,3 +55,32 @@ class Inventory
             'price' => trim($input[4]) 
         ];
     }
+
+    public function checkErrors($inputArray)
+    {   // Five entries is a must.
+        if(count($inputArray) !== 5)
+        {
+            echo "invalid entry \n";
+        }
+        else if(!is_numeric($inputArray[1]))
+        {
+            echo 'sku must be a number \n';
+        }
+        else if(!is_numeric($inputArray[3]))
+        {
+            echo 'quantity must be a number \n';
+        }
+        else if(!is_string($inputArray[2]))
+        {
+            echo 'name must be a string \n';
+        }
+        else if(!is_numeric($inputArray[4]))
+        {
+            echo 'price must be a number \n';
+        }
+        else
+        {
+            return true;
+        }
+    }
+}
