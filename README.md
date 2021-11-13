@@ -1,3 +1,5 @@
+# Shopping cart /single user command line
+
 Design a simple in-memory, single user command line store / shopping cart. The application has two stages: Build an inventory store, to store items and their associated sku, quantity, name, and price Shopping Cart Builder (Removes items from inventory to build personal cart of items)
 
 First stage has following commands (STDIN): ADD - Add item to inventory, INPUT: sku(number) name(string) quantity(number) price(number); e.g. ADD 1 T-Shirt 3 5.99
