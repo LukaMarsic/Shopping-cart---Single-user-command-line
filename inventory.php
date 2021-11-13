@@ -24,7 +24,8 @@ class Inventory
         if ($inputArray[0] === "END") {
             if (empty($_SESSION['Inventory'])) {
                 echo "inventory is empty \n";
-            } else {/**
+            } else {
+            /**
              *If the field is not empty, go to the second stage */
                 include 'cart.php';
                 return;
