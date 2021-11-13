@@ -1,6 +1,6 @@
 # How to run app
 
-1.First, we have to download PHP from it’s official website. We have to download the .zip file from the respective section depending upon on our system architecture(x86 or x64).
+1.First, we have to download PHP from it’s official website (https://www.php.net/downloads.php). We have to download the .zip file from the respective section depending upon on our system architecture(x86 or x64).
 ________________________________________________________________________________________
 2.Extract the .zip file to your preferred location. It is recommended to choose the Boot Drive(C Drive) inside a folder named php (ie. C:\php).
 ________________________________________________________________________________________
