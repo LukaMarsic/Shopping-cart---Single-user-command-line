@@ -63,3 +63,81 @@ class Cart
         }
         New Cart;
     }
+
+    public function removeItem($inputArray)
+    {
+        //Delete or change quantity number
+        if($_SESSION['Cart'][$inputArray[1]]['quantity'] <= $inputArray[2])
+        {
+            $_SESSION['Inventory'][$inputArray[1]]['quantity'] = 
+            $_SESSION['Inventory'][$inputArray[1]]['quantity'] + 
+            $_SESSION['Cart'][$inputArray[1]]['quantity'];
+            unset($_SESSION['Cart'][$inputArray[1]]);
+        }else
+        {
+            $_SESSION['Inventory'][$inputArray[1]]['quantity'] = 
+            $_SESSION['Inventory'][$inputArray[1]]['quantity'] + $inputArray[2];   
+            $_SESSION['Cart'][$inputArray[1]]['quantity']= 
+            $_SESSION['Cart'][$inputArray[1]]['quantity'] - $inputArray[2];
+
+        }
+
+    }
+
+    public function checkout()
+    {   //Show all items and print total price
+        $totalPrice=0;
+        echo "\n";
+        foreach($_SESSION['Cart'] as $keyCart)
+        {
+            foreach ($_SESSION['Inventory'] as $keyInventory) {
+                
+                if($keyCart['sku'] == $keyInventory['sku'])
+                {
+                    $totalPrice = ($keyCart['quantity'] * $keyInventory['price']) + $totalPrice;
+                    echo $keyInventory['name']." ".$keyCart['quantity']. "x". $keyInventory['price'] ."=".$keyCart['quantity'] * $keyInventory['price'] ."\n";
+                }
+            } 
+        }
+        echo "\n";
+        echo "Total price ".$totalPrice. "\n";
+        echo "\n";
+        // Delete the cart items
+        foreach($_SESSION['Cart'] as $keyCart){
+            unset($_SESSION['Cart'][$keyCart['sku']]);
+        }
+    }
+
+    public function insertItem($input)
+    {
+        //Insert item in cart  
+        $_SESSION['Cart'][$input[1]] = [
+            'sku' => trim($input[1]),
+            'quantity' => trim($input[2])
+        ];
+        //Decrease item quantity 
+        $_SESSION['Inventory'][$input[1]]['quantity'] =
+        $_SESSION['Inventory'][$input[1]]['quantity'] - $input[2]; 
+
+
+    }
+
+    public function checkError($inputArray)
+    {   //Check input errors
+        if(count($inputArray) !== 3)
+        {
+            echo "invalid entry \n";
+        }
+        else if(!is_numeric($inputArray[1]))
+        {
+            echo "sku must be a number \n";
+        }
+        else if(!is_numeric($inputArray[2]))
+        {
+            echo "quantity must be a number \n";
+        }
+        else
+        {
+            return true;
+        }
+    }
