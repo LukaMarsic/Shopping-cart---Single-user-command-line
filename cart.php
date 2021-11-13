@@ -141,3 +141,18 @@ class Cart
             return true;
         }
     }
+    public function checkQuantity($inputArray)
+    {
+        //Check quantity. 
+        //If it is more than in the inventory, show error
+        if($_SESSION['Inventory'][$inputArray[1]]['quantity'] < $inputArray[2])
+        {
+            echo $_SESSION['Inventory'][$inputArray[1]]['quantity']." are available \n";
+            return false;
+        }
+        return true;
+    }
+
+}
+
+$class = new cart;
