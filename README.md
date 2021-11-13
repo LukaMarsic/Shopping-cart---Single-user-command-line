@@ -12,6 +12,23 @@ ________________________________________________________________________________
 ->Then we can run php code code using the following command:<br>
 
               php file_name.php
+________________________________________________________________________________________
+EXAMPLE:<br>
+Add item to inventory: ADD 1 T-Shirt 5 5.99<br>
+Item added<br>
+Add item to inventory: ADD 2 Badge 10 0.99<br>
+Item added<br>
+Add item to inventory: END<br>
+Adds an item in the current shopping cart: ADD 1 1<br>
+Item added<br>
+Adds an item in the current shopping cart: ADD 2 3<br>
+Item added<br>
+Adds an item in the current shopping cart: CHECKOUT<br>
+
+T-Shirt 1x5.99=5.99<br>
+Badge 3x0.99=2.97<br><br>
+
+Total price 8.96<br>
 
 ________________________________________________________________________________________
 # Shopping cart /single user command line store
