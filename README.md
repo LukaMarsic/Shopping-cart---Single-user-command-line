@@ -1,4 +1,4 @@
-# Shopping cart /single user command line
+# Shopping cart /single user command line store
 
 Design a simple in-memory, single user command line store / shopping cart. The application has two stages: Build an inventory store, to store items and their associated sku, quantity, name, and price Shopping Cart Builder (Removes items from inventory to build personal cart of items)
 
