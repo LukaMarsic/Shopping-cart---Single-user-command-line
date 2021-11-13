@@ -8,18 +8,17 @@ class Inventory
     public $input = [];
 
     public function __construct()
-    {   //Open input in command line
+    {
         echo "Add item to inventory:";
         $input = trim(fgets(STDIN,1024));
         $this -> checkInput($input);
-        
     }
 
     public function checkInput($input)
-    {   //Explode string 
+    {   
         $inputArray = explode(" ",$input);
 
-        // Check ADD or END action
+        // Check if the input is correct ADD or END action
         if($inputArray[0] === "END")
         {   
             if(empty($_SESSION['Inventory']))
@@ -44,7 +43,6 @@ class Inventory
         }
         new inventory;
     }
-
 
     public function insertIntoInventory($input)
     {   // Adding items

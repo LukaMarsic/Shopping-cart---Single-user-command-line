@@ -1,5 +1,12 @@
+
+
 <?php
 $_SESSION['Cart'] = [];
+
+/**
+ * opis moje kart klase   ++ iznad svake funkcije isto napraviti
+ */ 
+
 class Cart
 {
 
@@ -53,7 +60,6 @@ class Cart
                 
                 break;
             case 'END':
-                //exit
                 echo "Goodbye \n";
                 exit;
                 break;    
@@ -61,7 +67,6 @@ class Cart
                 echo "invalid entry \n";
                 break;
         }
-        New Cart;
     }
 
     public function removeItem($inputArray)
@@ -141,9 +146,9 @@ class Cart
             return true;
         }
     }
+
     public function checkQuantity($inputArray)
     {
-        //Check quantity. 
         //If it is more than in the inventory, show error
         if($_SESSION['Inventory'][$inputArray[1]]['quantity'] < $inputArray[2])
         {
