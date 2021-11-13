@@ -1,15 +1,15 @@
 # Shopping cart # 
 
-* 
-* 
+* `Shopping cart` is simple in-memory, single user command line store.
+
 
 ## Setup ##
 
 1. Download the Windows PHP environment from this [link](https://windows.php.net/downloads/releases/php-8.0.12-nts-Win32-vs16-x64.zip). 
 
-2. Extract the `.zip` file to your preferred location. It is recommended to choose the Boot Drive(C Drive) inside a folder named PHP (i.e. `C:\php`).
+2. Extract the `.zip` file to  preferred location. It is recommended to choose the Boot Drive(C Drive) inside a folder named PHP (i.e. `C:\php`).
 
-3. Add the folder (`C:\php`) to the `Environment Variable Path` so that it becomes accessible from the command line.  To do so, we have to:  
+3. Add the folder (`C:\php`) to the `Environment Variable Path` so that it becomes accessible from the command line.  To do so:  
 > * Right click on My Computer 
 > * Select `Properties` from the context menu
 > * Click the `Advanced system settings` 
@@ -72,3 +72,10 @@ Below are the commands for each phase.
 
 * Total price 8.96
 ```
+
+## Screenshot ##
+
+> 
+
+
+![Shopping-cart](Preview/shoppingcart.png)
