@@ -67,6 +67,7 @@ class Cart
                 echo "invalid entry \n";
                 break;
         }
+        New cart;
     }
 
     public function removeItem($inputArray)

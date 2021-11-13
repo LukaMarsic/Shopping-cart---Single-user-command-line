@@ -42,14 +42,14 @@ Below are the commands for each phase.
 
 > * `ADD` - Adds items to the inventory 
 > * `END` - Ends the inventory adding stage
-> * `CHECKOUT` - 
+ 
 
 * Second phase:
 
-> * `ADD` - Adds an item in the current shopping cart;  
-> * * INPUT: sku(number) quantity(number); e.g. ADD 2 3
-> * `REMOVE` - Removes an existing item from the shopping cart; 
-> * * INPUT: sku(number) quantity(number); e.g. REMOVE 2 3
+> * `ADD` - Adds an item in the current shopping cart
+> * `REMOVE` - Removes item from the shopping cart
+> * `CHECKOUT` - Print total price,quantity and all items
+> * `END` - Closes the stage and exits the program
 
 
 
