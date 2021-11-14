@@ -31,7 +31,6 @@ class Inventory
                 return;
             }
             
-
         } else if ($inputArray[0] === "ADD") {
             if ($this->checkErrors($inputArray)) {
             /**
