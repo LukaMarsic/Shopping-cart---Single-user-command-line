@@ -30,26 +30,7 @@ class Inventory
                 include 'cart.php';
                 return;
             }
-            /** 
-             * Added this option because app is crashing when you add decimal numbers to products quantity */
-            function bd_nice_number($n) {
-                
-                $n = (0+str_replace(",","",$n));
-               
-                
-                if(!is_numeric($n)) return false;
-               
-                
-                if($n>1000000000000) return round(($n/1000000000000),1);
-                else if($n>1000000000) return round(($n/1000000000),1);
-                else if($n>1000000) return round(($n/1000000),1);
-                else if($n>1000) return round(($n/1000),1);
-                else if($n>100) return round(($n/100),1);
-                else if($n>10) return round(($n/10),1);
-                else if($n>1) return round(($n/1),1);
-               
-                return number_format($n);
-            }
+            
 
         } else if ($inputArray[0] === "ADD") {
             if ($this->checkErrors($inputArray)) {
@@ -72,7 +53,11 @@ class Inventory
             'quantity' => trim($input[3]),
             'name' => trim($input[2]),
             'price' => trim($input[4]),
+             
         ];
+
+       
+
     }
     /**
      *  Five entries is a must */
